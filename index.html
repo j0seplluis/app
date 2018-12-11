@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <title>Home</title>
+
+        <!-- FONT AWSOME -->
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+            integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+            crossorigin="anonymous">
+
+        <!-- BOOTSTRAP -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+
+        <link rel="stylesheet" href="./CSS/main.css">
+    </head>
+
+    <body>
+
+        <dih6v id="myApp">
+
+            <!-- HOME --(INDEX)-->
+
+            <div id="index" v-show="showPage == 'index' ">
+                <header class="index-header">
+                    <h1>Welcome</h1>
+                </header>
+                <div class="index">
+                    <div class="cont_logo">
+                        <img class="logo" src="./img/nysl_logo.png" alt="NYSL logo">
+                    </div>
+                    <div class="chose_index">
+                        <div class="disp-flex">
+                            <div v-on:click="onScreen('login')" class="padd_8 btn_background">Chat</div>
+                            <div v-on:click="onScreen('news')" class="padd_8 btn_background">Come in</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEWS -->
+
+            <div id="news" v-show="showPage == 'news' ">
+                <div class="container cont90vh">
+                    <div class="arrow">
+                        <div @click="onScreen('index')" class="home">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+                    <header>
+                        <h1 class="page_title">News</h1>
+                    </header>
+                    <div class="news container">
+                        <div v-for="post, i in posts" class="post">
+                            <h4>{{post.title}}</h4>
+                            <p>
+                                {{post.content.slice(0,150)}}
+
+                                <div class="collapse" :id="'collapseExample' + i">
+                                    <div class="card card-body">
+                                        <span class="more">{{post.content.slice(150)}}</span>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="btn btn-primary"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    :data-target="'#collapseExample'+i"
+                                    aria-expanded="false"
+                                    :aria-controls="'collapseExample' + i">Read More</button>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEAMS -->
+
+            <div id="teams" v-show="showPage == 'teams' ">
+                <div class="container cont90vh">
+                    <div class="arrow">
+                        <div @click="onScreen('index')" class="home">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+
+                    <header>
+                        <h1 class="page_title">Teams</h1>
+                    </header>
+
+                    <div class="container teams">
+                        <div class="row">
+                            <div class="col-6 " v-for="team,i in teams">
+                                <div @click="onScreen('a_team')" class="team">
+                                    <img
+                                        class="team_logo"
+                                        :src="team.logo"
+                                        alt="team.name">
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- A TEAM -->
+
+            <div id="a_team" v-show="showPage == 'a_team' ">
+                <div class="container cont90vh">
+                    <div class="arrow">
+                        <div @click="onScreen('index')" class="home">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+
+                    <header v-for="team in teams">
+                        <!-- <h1 class="page_title schedule">{{team.name}}</h1> -->
+                    </header>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col team">
+                                <img
+                                    class="team_logo"
+                                    src="./img/darkside emperors.jpg"
+                                    alt="darkside emperors">
+                            </div>
+                            <div class="col scroll">
+                                <h4>Darkside Emperors Story</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil magni
+                                    reprehenderit vel eius modi possimus odio tempore, itaque necessitatibus.
+                                    Expedita repellendus corporis autem voluptate optio doloremque inventore,
+                                    explicabo ducimus cumque.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="accordion" class="marginT_20">
+                                    <div class="card">
+                                        <div class="card-header" id="headingTPlayers">
+                                            <h5 class="mb-0">
+                                                <button
+                                                    class="btn btn-link collapsed"
+                                                    data-toggle="collapse"
+                                                    data-target="#collapsePlayers"
+                                                    aria-expanded="false"
+                                                    aria-controls="collapsePlayers">
+                                                    Players
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div
+                                            id="collapsePlayers"
+                                            class="collapse"
+                                            aria-labelledby="headingPlayers"
+                                            data-parent="#accordion">
+                                            <div class="card-body acordion_players">
+                                                <ul>
+                                                    <li>a</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingStadium">
+                                            <h5 class="mb-0">
+                                                <button
+                                                    class="btn btn-link collapsed"
+                                                    data-toggle="collapse"
+                                                    data-target="#collapseStadium"
+                                                    aria-expanded="false"
+                                                    aria-controls="collapseStadiu,">
+                                                    Stadium
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div
+                                            id="collapseStadium"
+                                            class="collapse"
+                                            aria-labelledby="headingStadium"
+                                            data-parent="#accordion">
+                                            <div class="card-body acordion_players">
+                                                <iframe
+                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
+                                                    width="200"
+                                                    height="200"
+                                                    frameborder="0"
+                                                    style="border:0"
+                                                    allowfullscreen="allowfullscreen"></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCHEDULE -->
+
+            <div id="schedule" v-show="showPage == 'schedule'">
+                <div class="container cont90vh">
+                    <div class="arrow">
+                        <div @click="onScreen('index')" class="home">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+
+                    <header>
+                        <h1 class="page_title schedule">Schedule</h1>
+                    </header>
+
+                    <!-- Accotdion -->
+
+                    <div
+                        class="accordion md-accordion"
+                        id="accordionEx"
+                        role="tablist"
+                        aria-multiselectable="true">
+
+                        <!-- Accordion card -->
+                        <div class="card">
+
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingOne1">
+                                <a
+                                    data-toggle="collapse"
+                                    data-parent="#accordionEx"
+                                    href="#collapseOne1"
+                                    aria-expanded="true"
+                                    aria-controls="collapseOne1">
+                                    <h5 class="mb-0 A3FF15">
+                                        December 28
+                                    </h5>
+                                </a>
+                            </div>
+
+                            <!-- Card body -->
+                            <div
+                                id="collapseOne1"
+                                class="collapse"
+                                role="tabpanel"
+                                aria-labelledby="headingOne1"
+                                data-parent="#accordionEx">
+                                <div class="card-body">
+                                    Darkside Emperors vs Republic Rebels
+                                </div>
+                                <div class="card-body">
+                                    Tatooine Sandcrawlers vs Droids D.C
+                                </div>
+                                <div class="card-body">
+                                    Forest Moon Chiefs vs Deathstar Troopers
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion card -->
+                        <div class="card">
+
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingThree3">
+                                <a
+                                    class="collapsed"
+                                    data-toggle="collapse"
+                                    data-parent="#accordionEx"
+                                    href="#collapseThree3"
+                                    aria-expanded="false"
+                                    aria-controls="collapseThree3">
+                                    <h5 class="mb-0 A3FF15">
+                                        December 30
+                                    </h5>
+                                </a>
+                            </div>
+
+                            <!-- Card body -->
+                            <div
+                                id="collapseThree3"
+                                class="collapse"
+                                role="tabpanel"
+                                aria-labelledby="headingThree3"
+                                data-parent="#accordionEx">
+
+                                <div class="card-body">
+                                    <div>Republic Rebels vs Deathstar Troopers</div>
+                                    <p>time</p>
+                                    <p>location</p>
+                                </div>
+
+                                <div class="card-body">
+                                    Darkside Emperors vs Droids D.C
+                                </div>
+                                <div class="card-body">
+                                    Tatooine Sandcrawlers vs Forest Moon Chiefs
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion wrapper -->
+
+                </div>
+            </div>
+
+            <!-- MAPS -->
+            <div id="maps" v-show="showPage == 'maps'">
+                <div class="container cont90vh">
+                    <div class="arrow">
+                        <div @click="onScreen('index')" class="home">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+
+                    <header>
+                        <h1 class="page_title schedule">Locations</h1>
+                    </header>
+
+                    <div class="container location">
+                        <div class="map">
+                            <h5>Ubiqum</h5>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
+                                allowfullscreen="allowfullscreen"></iframe>
+                        </div>
+                        <div class="map">
+                            <h5>Ubiqum</h5>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
+                                allowfullscreen="allowfullscreen"></iframe>
+                        </div>
+                        <div class="map">
+                            <h5>Ubiqum</h5>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
+                                allowfullscreen="allowfullscreen"></iframe>
+                        </div>
+                        <div class="map">
+                            <h5>Ubiqum</h5>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
+                                allowfullscreen="allowfullscreen"></iframe>
+                        </div>
+                        <div class="map">
+                            <h5>Ubiqum</h5>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
+                                allowfullscreen="allowfullscreen"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INFO -->
+
+            <div id="info" v-show="showPage == 'info' ">
+                <div class="container cont90vh">
+                    <div class="arrow">
+                        <div @click="onScreen('index')" class="home">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+
+                    <header>
+                        <h1 class="page_title about_us">About Us</h1>
+                    </header>
+
+                    <div class="container info">
+                        <div>
+                            <i class="fas fa-info home"></i>
+                            More about us at
+                            <a href="https://j0seplluis.github.io/NYSL/index.html" target="_blank">NYSL</a>
+                        </div>
+                        <div>
+                            <i class="fas fa-at home"></i>
+                            <p>For more information, please email us at
+                                <a href="mailto:nysl@chisoccer.org">nysl@chisoccer.org</a>
+                            </p>
+                            <p>
+                                We will reply to your email as soon as we can.</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone-square home"></i>
+                            <p>Call us at</p>
+                            <a href="tel:(630) 690-8132">(630) 690-8132</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOG IN -->
+
+            <div id="login" v-show="showPage == 'login' ">
+                <div class="container cont90vh">
+                    <div class="arrow">
+                        <div @click="onScreen('index')" class="home">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+
+                    <header>
+                        <h1 class="page_title">NYSL</h1>
+                    </header>
+
+                    <div class="log_blok">
+                        <div class="login">
+                            <div class="column">
+                                <label class="label_text" for="login">Log in</label>
+                                <input
+                                    class="input_size"
+                                    type="text"
+                                    name="login"
+                                    placeholder="User name"
+                                    required="required">
+                            </div>
+                            <div class="column">
+                                <label class="label_text" for="password">Password</label>
+                                <input
+                                    class="input_size"
+                                    type="text"
+                                    name="password"
+                                    placeholder="Password"
+                                    required="required">
+                            </div>
+                            <div class="submit">
+
+                                <button @click="onScreen('chat')" class="btn_size">Log in</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHAT -->
+
+            <div id="chat" v-show="showPage == 'chat' ">
+                <div class="container cont90vh">
+                    <div class="arrow">
+                        <div @click="onScreen('index')" class="home">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+
+                    <header>
+                        <h1 class="page_title">Chat</h1>
+                    </header>
+
+                    <div class="textarea">
+                        <div class="chat_box">
+                            <textarea class="chat" name="chat" id="" cols="30" rows="10"></textarea>
+                            <input type="text" class="chat_input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NAV -->
+
+            <div id="nav" v-show="showPage != 'index' ">
+                <nav class="nav disp-flex">
+                    <div class="container">
+                        <div class="row icons">
+                            <div class="col-xs">
+                                <a class="icon" @click="onScreen('news') ">
+                                    <i class="far fa-newspaper"></i>
+                                </a>
+                            </div>
+                            <div class="col-xs">
+                                <a class="icon" @click="onScreen('teams') ">
+                                    <i class="fas fa-tshirt"></i>
+                                </a>
+                            </div>
+                            <div class="col-xs">
+                                <a class="icon" @click="onScreen('schedule') ">
+                                    <i class="far fa-calendar-alt"></i>
+                                </a>
+                            </div>
+                            <div class="col-xs">
+                                <a class="icon" @click="onScreen('maps') ">
+                                    <i class="far fa-compass"></i>
+                                </a>
+                            </div>
+                            <div class="col-xs">
+                                <a class="icon" @click="onScreen('info') ">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+
+        <!-- BOOTSTRAP -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <!-- VueJS -->
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+        <!-- JS -->
+        <script src="./JS/data.js"></script>
+        <script src="./JS/main.js"></script>
+
+    </body>
+</html>

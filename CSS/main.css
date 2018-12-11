@@ -1,0 +1,387 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    list-style-type: none;
+}
+
+body{
+    background-color: #e6ffe6;
+    height: 100vh;
+} 
+
+a{
+    text-decoration: none;
+}
+
+a:not([href]):not([tabindex]) {
+    color: #e6ffe6
+}
+
+a:not([href]):not([tabindex]):hover {
+    color: #A3FF15;
+}
+
+.home{
+    height: 40px;
+    width: 40px;
+    padding: 8px;
+    background-color: #033949;
+    border-radius: 50%;
+    color: #e6ffe6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---container logo--- */
+
+.cont_logo{
+    height: 260px;
+    width:  260px;
+    margin: auto;
+}
+
+.logo{
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 5%;
+}
+
+.index-header{
+    margin-top: 19%;
+}
+
+.arrow{
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+h1, h2{
+    font-size: 60px;
+    font-weight: bold;
+    color:#A3FF15;
+    text-shadow: 2px 2px #033949;
+    margin-left: 15%;
+    margin-bottom: 0px;
+}
+
+h2{
+    margin-left: 35%;
+}
+
+.page_title{
+    font-size: 70px;
+    font-weight: bold;
+    color: #033949;
+    text-shadow: none;
+}
+
+.page_sub-title{
+    font-size: 40px;
+    font-weight: bold;
+    color: #033949;
+    text-shadow: none;
+}
+
+.cont90vh{
+    height: 93vh;
+}
+
+/* ---^--GLOBAL--^--- */
+
+/* ---INDEX.HTML--- */
+
+.btn_background{
+    background-color: #033949;
+    color:#A3FF15;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.padd_8{
+    padding: 18px;
+    width: 35%;
+    display: inline-block;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.chose_index{
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chose_sign{
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.index{
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ---NAVIGATION--- */
+
+.navigation{
+    height: 10%;
+    width: 100%;
+    background-color: #033949;
+    position: fixed;
+    bottom: 0;
+}
+
+.fa-arrow-alt-circle-left{
+    font-size: 50px;
+    color: #033949;
+}
+
+.icon {
+    font-size: 40px;
+    color: #e6ffe6;
+}
+
+.disp-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center
+}
+
+.nav{
+    background-color: #033949;
+    height: 10%;
+    display: flex;
+}
+
+.icons{
+    display: flex; 
+    justify-content: space-around;
+}
+
+/* ---LOG IN--- */
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.input_size{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.log{
+    display:flex;
+}
+
+.sign{
+    display: flex;
+}
+
+.log_blok{
+    height: 65vh;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.log_blok_reg{
+    height: 62vh;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login_reg{
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.submit{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.padd{
+    padding: 30px 50px;
+    border-radius: 20px;
+    flex-grow: 1;
+    text-align: center;
+    margin: 10px 15px 0px 15px;
+}
+
+.btn_size{
+    height: 30px;
+    width: 100px;
+    background-color: #033949;
+    border-radius: 20px;
+    color:#A3FF15;
+    font-size: 20px;
+}
+
+.fa-arrow-alt-circle-left:before {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.label_text{
+    font-size: 20px;
+    color: #033949;   
+}
+
+/* ----Chat---- */
+
+.textarea{
+    display: flex;
+    justify-content: center;
+    height: 68vh;
+}
+
+.chat{
+    height: 75%;  
+}
+
+.chat_box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.chat_input{
+    height: 10%;
+}
+
+/* ---NEWS--- */
+
+.news{
+    width: 90%;
+    height: 65vh;
+    overflow-y: scroll;
+}
+
+.card{
+    border: none;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+.post{
+    width: 90%;
+}
+
+.btn-primary {
+    color: #A3FF15;
+    background-color: #033958;
+    height: 36px;
+}
+
+.btn-primary:hover {
+    color: #A3FF15;
+    background-color: #033958;
+    height: 36px;
+}
+
+/* ---TEAMS--- */
+
+.teams{
+    height: 78%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: #033949;
+    border-radius: 10px;
+}
+
+.card-body{
+    background-color: #e6ffe6;
+}
+
+.btn-link{
+    color: #A3FF15;
+}
+
+/* ---SCHEDULE--- */
+
+.schedule{
+    margin-left: 5%;
+}
+
+.team{
+    height: 160px;
+    width: 160px;
+}
+
+.team_logo{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.A3FF15{
+    color: #A3FF15;
+}
+/* ---LOCATIONS--- */
+
+.location{
+    height: 70%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---INFO--- */
+
+.about_us{
+    margin-left: auto;
+}
+
+.info{
+    height: 53vh;
+    width: 85%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.scroll{
+    height: 20vh;
+    overflow-y: scroll;
+}
+
+.acordion_players{
+    height: 23vh;
+    overflow-y: scroll;
+}
+
+.marginT_20{
+    margin-top: 20px;
+}
+
