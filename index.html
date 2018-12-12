@@ -29,7 +29,7 @@
 
     <body>
 
-        <dih6v id="myApp">
+        <div id="myApp">
 
             <!-- HOME --(INDEX)-->
 
@@ -105,14 +105,11 @@
 
                     <div class="container teams">
                         <div class="row">
-                            <div class="col-6 " v-for="team,i in teams">
-                                <div @click="onScreen('a_team')" class="team">
-                                    <img
-                                        class="team_logo"
-                                        :src="team.logo"
-                                        alt="team.name">
+                            <div class="col-6 " v-for="team in teams">
+                                <div @click="onScreen('a_team', team.name)" class="team">
+                                    <img class="team_logo" :src="team.logo" :alt="team.name">
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -127,81 +124,80 @@
                             <i class="fas fa-home"></i>
                         </div>
                     </div>
+                    <div v-if="a_team">
+                        <header >
+                            <h4 class="page schedule">
+                                {{a_team.name}}
+                            </h4>
+                        </header>
 
-                    <header v-for="team in teams">
-                        <!-- <h1 class="page_title schedule">{{team.name}}</h1> -->
-                    </header>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col team">
-                                <img
-                                    class="team_logo"
-                                    src="./img/darkside emperors.jpg"
-                                    alt="darkside emperors">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col team">
+                                    <img class="team_logo" :src="a_team.logo" :alt="a_team.name">
+                                </div>
+                                <div class="col scroll">
+                                    <h4>Story</h4>
+                                    <p>
+                                        {{a_team.info}}
+                                    </p>
+                                </div>
                             </div>
-                            <div class="col scroll">
-                                <h4>Darkside Emperors Story</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil magni
-                                    reprehenderit vel eius modi possimus odio tempore, itaque necessitatibus.
-                                    Expedita repellendus corporis autem voluptate optio doloremque inventore,
-                                    explicabo ducimus cumque.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div id="accordion" class="marginT_20">
-                                    <div class="card">
-                                        <div class="card-header" id="headingTPlayers">
-                                            <h5 class="mb-0">
-                                                <button
-                                                    class="btn btn-link collapsed"
-                                                    data-toggle="collapse"
-                                                    data-target="#collapsePlayers"
-                                                    aria-expanded="false"
-                                                    aria-controls="collapsePlayers">
-                                                    Players
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div
-                                            id="collapsePlayers"
-                                            class="collapse"
-                                            aria-labelledby="headingPlayers"
-                                            data-parent="#accordion">
-                                            <div class="card-body acordion_players">
-                                                <ul>
-                                                    <li>a</li>
-                                                </ul>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div id="accordion" class="marginT_20">
+                                        <div class="card">
+                                            <div class="card-header" id="headingTPlayers">
+                                                <h5 class="mb-0">
+                                                    <button
+                                                        class="btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapsePlayers"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapsePlayers">
+                                                        Players
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div
+                                                id="collapsePlayers"
+                                                class="collapse"
+                                                aria-labelledby="headingPlayers"
+                                                data-parent="#accordion">
+                                                <div class="card-body acordion_players">
+                                                    <ul >
+                                                        <li v-for="item in a_team.players">
+                                                            {{item.squad_number}}
+                                                            -
+                                                            {{item.name}}
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingStadium">
-                                            <h5 class="mb-0">
-                                                <button
-                                                    class="btn btn-link collapsed"
-                                                    data-toggle="collapse"
-                                                    data-target="#collapseStadium"
-                                                    aria-expanded="false"
-                                                    aria-controls="collapseStadiu,">
-                                                    Stadium
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div
-                                            id="collapseStadium"
-                                            class="collapse"
-                                            aria-labelledby="headingStadium"
-                                            data-parent="#accordion">
-                                            <div class="card-body acordion_players">
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
-                                                    width="200"
-                                                    height="200"
-                                                    frameborder="0"
-                                                    style="border:0"
-                                                    allowfullscreen="allowfullscreen"></iframe>
+                                        <div class="card">
+                                            <div class="card-header" id="headingStadium">
+                                                <h5 class="mb-0">
+                                                    <button
+                                                        class="btn btn-link collapsed"
+                                                        data-toggle="collapse"
+                                                        data-target="#collapseStadium"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseStadiu,">
+                                                        Stadium
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div
+                                                id="collapseStadium"
+                                                class="collapse"
+                                                aria-labelledby="headingStadium"
+                                                data-parent="#accordion">
+                                                <div class="card-body acordion_players" v-for="item in a_team.location">
+                                                    <iframe
+                                                        :src="'https://www.google.com/maps?q=' + a_team.location + '&hl=es;z=14&amp;output=embed'"
+                                                        allowfullscreen="allowfullscreen"></iframe>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -226,7 +222,7 @@
                         <h1 class="page_title schedule">Schedule</h1>
                     </header>
 
-                    <!-- Accotdion -->
+                    <!-- Accordion -->
 
                     <div
                         class="accordion md-accordion"
@@ -246,73 +242,39 @@
                                     aria-expanded="true"
                                     aria-controls="collapseOne1">
                                     <h5 class="mb-0 A3FF15">
-                                        December 28
+                                        December
                                     </h5>
                                 </a>
                             </div>
 
                             <!-- Card body -->
+                            <div class="scroller collapse" id="collapseOne1">
                             <div
+                                v-for="game in games"
                                 id="collapseOne1"
                                 class="collapse"
                                 role="tabpanel"
                                 aria-labelledby="headingOne1"
                                 data-parent="#accordionEx">
                                 <div class="card-body">
-                                    Darkside Emperors vs Republic Rebels
-                                </div>
-                                <div class="card-body">
-                                    Tatooine Sandcrawlers vs Droids D.C
-                                </div>
-                                <div class="card-body">
-                                    Forest Moon Chiefs vs Deathstar Troopers
+                                    <p class="slot">
+                                        <span class="br"> {{game.local}} vs {{game.visitor}}
+                                        </span>
+                                        <span class="br">
+                                            Date: {{game.date}}  |  Time: {{game.time}}
+                                        </span>
+                                        <span class="br">
+                                            Where:
+                                            <iframe :src="'https://www.google.com/maps?q=' + game.location + '&hl=es;z=14&amp;output=embed'"
+                                                     allowfullscreen="allowfullscreen"></iframe>
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Accordion card -->
-                        <div class="card">
-
-                            <!-- Card header -->
-                            <div class="card-header" role="tab" id="headingThree3">
-                                <a
-                                    class="collapsed"
-                                    data-toggle="collapse"
-                                    data-parent="#accordionEx"
-                                    href="#collapseThree3"
-                                    aria-expanded="false"
-                                    aria-controls="collapseThree3">
-                                    <h5 class="mb-0 A3FF15">
-                                        December 30
-                                    </h5>
-                                </a>
-                            </div>
-
-                            <!-- Card body -->
-                            <div
-                                id="collapseThree3"
-                                class="collapse"
-                                role="tabpanel"
-                                aria-labelledby="headingThree3"
-                                data-parent="#accordionEx">
-
-                                <div class="card-body">
-                                    <div>Republic Rebels vs Deathstar Troopers</div>
-                                    <p>time</p>
-                                    <p>location</p>
-                                </div>
-
-                                <div class="card-body">
-                                    Darkside Emperors vs Droids D.C
-                                </div>
-                                <div class="card-body">
-                                    Tatooine Sandcrawlers vs Forest Moon Chiefs
-                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- Accordion wrapper -->
-
                 </div>
             </div>
 
@@ -330,34 +292,12 @@
                     </header>
 
                     <div class="container location">
-                        <div class="map">
-                            <h5>Ubiqum</h5>
+                        <div class="map" v-for="team in teams">
+                            <h5>
+                                {{team.stadium}}
+                            </h5>
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
-                                allowfullscreen="allowfullscreen"></iframe>
-                        </div>
-                        <div class="map">
-                            <h5>Ubiqum</h5>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
-                                allowfullscreen="allowfullscreen"></iframe>
-                        </div>
-                        <div class="map">
-                            <h5>Ubiqum</h5>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
-                                allowfullscreen="allowfullscreen"></iframe>
-                        </div>
-                        <div class="map">
-                            <h5>Ubiqum</h5>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
-                                allowfullscreen="allowfullscreen"></iframe>
-                        </div>
-                        <div class="map">
-                            <h5>Ubiqum</h5>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.72427123672!2d2.1890859509708327!3d41.401794002963115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3823091cb93%3A0xba446b9a02446355!2sWeWork!5e0!3m2!1ses!2ses!4v1543792774118"
+                                :src="'https://www.google.com/maps?q=' + team.location + '&hl=es;z=14&amp;output=embed'"
                                 allowfullscreen="allowfullscreen"></iframe>
                         </div>
                     </div>

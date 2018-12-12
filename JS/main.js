@@ -1,26 +1,25 @@
-app = new Vue ({
+let app = new Vue ({
     el: '#myApp',
     data:{
         showPage: "index",
-        posts: [],
-        teams: [],
-        games: [],
-        players: [],
-
-
+        posts: data.news,
+        teams: data.teams,
+        games: data.games,
+        teamSelected: null,
     },
 
     methods:{
-        onScreen:function(id){
+        onScreen:function(id, name){
             this.showPage = id;
+            this.teamSelected = name;
         },
-
-        
-
     },
-});
+    computed:{
+        a_team:function(){
+            
+            return this.teams.find(teams => teams.name == this.teamSelected )
+            
+        }
+    }
 
-app.posts=data.news;
-app.teams=data.teams;
-app.games=data.games;
-app.players=data.players;
+});
