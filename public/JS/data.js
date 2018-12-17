@@ -72,7 +72,7 @@ var data = {
     "teams": [
         {
             "name": "Darkside Emperors",
-            "logo": "/img/darkside emperors.jpg",
+            "logo": "./img/darkside emperors.jpg",
             "stadium": "Empire court house",
             "location": [
                 "41.878930,-87.628077"
@@ -130,7 +130,7 @@ var data = {
             ]
         }, {
             "name": "Deathstar Troopers",
-            "logo": "/img/death star troopers.jpg",
+            "logo": "./img/death star troopers.jpg",
             "stadium": "Deathstar playground",
             "location": [
                 "42.332680,-83.051191"
@@ -186,7 +186,7 @@ var data = {
             ]
         }, {
             "name": "Forest Moon Chiefs",
-            "logo": "/img/forest moon chiefs.png",
+            "logo": "./img/forest moon chiefs.png",
             "stadium": "Forest Meadows",
             "location": [
                 "40.441825,-123.990952"
@@ -244,7 +244,7 @@ var data = {
             ]
         }, {
             "name": "Tatooine Sandcrawlers",
-            "logo": "/img/tatooine sandcrawlers.png",
+            "logo": "./img/tatooine sandcrawlers.png",
             "stadium": "Death Valley Sand Dunes",
             "location": [
                 "36.615414,-117.113155"
@@ -298,7 +298,7 @@ var data = {
             ]
         }, {
             "name": "Reublic Rebels",
-            "logo": "/img/republic rebels.png",
+            "logo": "./img/republic rebels.png",
             "stadium": "Hide court",
             "location": [
                 "37.769470,-122.486243"
@@ -354,7 +354,7 @@ var data = {
             ]
         }, {
             "name": "Droids of Desert County",
-            "logo": "/img/star-wars-sports-team-logos-droids-desert-county.png",
+            "logo": "./img/star-wars-sports-team-logos-droids-desert-county.png",
             "stadium": "The Hutt House",
             "location": [
                 "36.393624,-116.780929"

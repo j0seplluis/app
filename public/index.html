@@ -2,11 +2,17 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible">
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <meta
             name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="mobile-web-app-capable" content="yes">
+            content="width=device-width, initial-scale=1, maximum-scale=1"
+            user-scalable="no">
+        <link rel="shortcut icon" type="image/x-icon" href="./img/nysl_logo.png">
+        <link rel="apple-touch-icon" href="./img/nysl_logo.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="./img/nysl_logo.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="./img/nysl_logo.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="./img/nysl_logo.png">
 
         <title>Home</title>
 
@@ -53,7 +59,7 @@
             <!-- NEWS -->
 
             <div id="news" v-show="showPage == 'news' ">
-                <div class="container cont90vh">
+                <div class="container cont90vh cont84vh_landscape">
                     <div class="arrow">
                         <div @click="onScreen('index')" class="home">
                             <i class="fas fa-home"></i>
@@ -92,7 +98,7 @@
             <!-- TEAMS -->
 
             <div id="teams" v-show="showPage == 'teams' ">
-                <div class="container cont90vh">
+                <div class="container cont90vh cont84vh_landscape">
                     <div class="arrow">
                         <div @click="onScreen('index')" class="home">
                             <i class="fas fa-home"></i>
@@ -104,7 +110,7 @@
                     </header>
 
                     <div class="container teams">
-                        <div class="row">
+                        <div class="row row_landscape">
                             <div class="col-6 " v-for="team in teams">
                                 <div @click="onScreen('a_team', team.name)" class="team">
                                     <img class="team_logo" :src="team.logo" :alt="team.name">
@@ -118,21 +124,21 @@
             <!-- A TEAM -->
 
             <div id="a_team" v-show="showPage == 'a_team' ">
-                <div class="container cont90vh">
+                <div class="container cont90vh cont84vh_landscape">
                     <div class="arrow">
                         <div @click="onScreen('index')" class="home">
                             <i class="fas fa-home"></i>
                         </div>
                     </div>
-                    <div v-if="a_team">
+                    <div v-if="a_team" class="a_team_landscape">
                         <header >
                             <h4 class="page schedule">
                                 {{a_team.name}}
                             </h4>
                         </header>
 
-                        <div class="container">
-                            <div class="row">
+                        <div class="container team_container_landscape">
+                            <div class="row row_landscape">
                                 <div class="col team">
                                     <img class="team_logo" :src="a_team.logo" :alt="a_team.name">
                                 </div>
@@ -143,7 +149,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row row_landscape">
                                 <div class="col-12">
                                     <div id="accordion" class="marginT_20">
                                         <div class="card">
@@ -211,7 +217,7 @@
             <!-- SCHEDULE -->
 
             <div id="schedule" v-show="showPage == 'schedule'">
-                <div class="container cont90vh">
+                <div class="container cont90vh cont84vh_landscape">
                     <div class="arrow">
                         <div @click="onScreen('index')" class="home">
                             <i class="fas fa-home"></i>
@@ -249,28 +255,35 @@
 
                             <!-- Card body -->
                             <div class="scroller collapse" id="collapseOne1">
-                            <div
-                                v-for="game in games"
-                                id="collapseOne1"
-                                class="collapse"
-                                role="tabpanel"
-                                aria-labelledby="headingOne1"
-                                data-parent="#accordionEx">
-                                <div class="card-body">
-                                    <p class="slot">
-                                        <span class="br"> {{game.local}} vs {{game.visitor}}
-                                        </span>
-                                        <span class="br">
-                                            Date: {{game.date}}  |  Time: {{game.time}}
-                                        </span>
-                                        <span class="br">
-                                            Where:
-                                            <iframe :src="'https://www.google.com/maps?q=' + game.location + '&hl=es;z=14&amp;output=embed'"
-                                                     allowfullscreen="allowfullscreen"></iframe>
-                                        </span>
-                                    </p>
+                                <div
+                                    v-for="game in games"
+                                    id="collapseOne1"
+                                    class="collapse"
+                                    role="tabpanel"
+                                    aria-labelledby="headingOne1"
+                                    data-parent="#accordionEx">
+                                    <div class="card-body">
+                                        <p class="slot">
+                                            <span class="br">
+                                                {{game.local}}
+                                                vs
+                                                {{game.visitor}}
+                                            </span>
+                                            <span class="br">
+                                                Date:
+                                                {{game.date}}
+                                                | Time:
+                                                {{game.time}}
+                                            </span>
+                                            <span class="br">
+                                                Where:
+                                                <iframe
+                                                    :src="'https://www.google.com/maps?q=' + game.location + '&hl=es;z=14&amp;output=embed'"
+                                                    allowfullscreen="allowfullscreen"></iframe>
+                                            </span>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -280,7 +293,7 @@
 
             <!-- MAPS -->
             <div id="maps" v-show="showPage == 'maps'">
-                <div class="container cont90vh">
+                <div class="container cont90vh cont84vh_landscape">
                     <div class="arrow">
                         <div @click="onScreen('index')" class="home">
                             <i class="fas fa-home"></i>
@@ -307,7 +320,7 @@
             <!-- INFO -->
 
             <div id="info" v-show="showPage == 'info' ">
-                <div class="container cont90vh">
+                <div class="container cont90vh cont84vh_landscape">
                     <div class="arrow">
                         <div @click="onScreen('index')" class="home">
                             <i class="fas fa-home"></i>
@@ -344,7 +357,7 @@
             <!-- LOG IN -->
 
             <div id="login" v-show="showPage == 'login' ">
-                <div class="container cont90vh">
+                <div class="container cont90vh cont84vh_landscape">
                     <div class="arrow">
                         <div @click="onScreen('index')" class="home">
                             <i class="fas fa-home"></i>
@@ -377,7 +390,8 @@
                             </div>
                             <div class="submit">
 
-                                <button @click="onScreen('chat')" class="btn_size">Log in</button>
+                                <button  class="btn_size">Log in</button>
+                                <button  id="login_1" class="btn_size">Google</button>
 
                             </div>
                         </div>
@@ -388,7 +402,7 @@
             <!-- CHAT -->
 
             <div id="chat" v-show="showPage == 'chat' ">
-                <div class="container cont90vh">
+                <div class="container cont90vh cont84vh_landscape">
                     <div class="arrow">
                         <div @click="onScreen('index')" class="home">
                             <i class="fas fa-home"></i>
@@ -398,13 +412,22 @@
                     <header>
                         <h1 class="page_title">Chat</h1>
                     </header>
-
-                    <div class="textarea">
-                        <div class="chat_box">
-                            <textarea class="chat" name="chat" id="" cols="30" rows="10"></textarea>
-                            <input type="text" class="chat_input">
+                    <div class="post_scroll">
+                        <div id="posts" class="box">
+                            Loading posts...
                         </div>
                     </div>
+                    
+                    <div class="inputs">
+                        <input
+                            id="textInput"
+                            class="input input_size"
+                            type="text"
+                            placeholder="Your message...">
+
+                        <button id="create-post" class="button is-primary btn_size">Send</button>
+                    </div>
+
                 </div>
             </div>
 
@@ -443,7 +466,24 @@
                     </div>
                 </nav>
             </div>
+
         </div>
+
+        <!-- firebase -->
+
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyDYq96LL_b9Y08yKkgpSPzNyJSqpWMsfVY",
+                authDomain: "nyslapp-d6664.firebaseapp.com",
+                databaseURL: "https://nyslapp-d6664.firebaseio.com",
+                projectId: "nyslapp-d6664",
+                storageBucket: "nyslapp-d6664.appspot.com",
+                messagingSenderId: "173035689206"
+            };
+            firebase.initializeApp(config);
+        </script>
 
         <!-- BOOTSTRAP -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
