@@ -111,6 +111,7 @@
 
                     <div class="container teams">
                         <div class="row row_landscape">
+
                             <div class="col-6 " v-for="team in teams">
                                 <div @click="onScreen('a_team', team.name)" class="team">
                                     <img class="team_logo" :src="team.logo" :alt="team.name">
@@ -390,8 +391,8 @@
                             </div>
                             <div class="submit">
 
-                                <button  class="btn_size">Log in</button>
-                                <button  id="login_1" class="btn_size">Google</button>
+                                <button class="btn_size">Log in</button>
+                                <button id="login_1" class="btn_size">Google</button>
 
                             </div>
                         </div>
@@ -417,7 +418,7 @@
                             Loading posts...
                         </div>
                     </div>
-                    
+
                     <div class="inputs">
                         <input
                             id="textInput"
